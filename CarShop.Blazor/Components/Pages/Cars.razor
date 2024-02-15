@@ -1,0 +1,29 @@
+﻿@page "/carros"
+
+<h3>Cars</h3>
+
+<p>
+    <a href="/cadastrar/carro">Cadastrar</a>
+</p>
+@if (cars is null)
+{
+    <h3>Nenhum carro foi cadastrado!</h3>
+}
+else
+{
+    <div class="row">
+        @foreach (var car in cars)
+        {
+            <CarCard @rendermode="InteractiveServer" Car="@car" />
+        }
+    </div>
+}
+
+@code {
+    IEnumerable<Car>? cars;
+
+    protected override async Task OnInitializedAsync()
+    {
+        cars = await carRepository.GetAll();
+    }
+}

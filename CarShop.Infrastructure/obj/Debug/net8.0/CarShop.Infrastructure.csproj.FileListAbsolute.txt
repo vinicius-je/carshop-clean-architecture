@@ -1,0 +1,15 @@
+C:\curso\CarShop\CarShop.Infrastructure\bin\Debug\net8.0\CarShop.Infrastructure.deps.json
+C:\curso\CarShop\CarShop.Infrastructure\bin\Debug\net8.0\CarShop.Infrastructure.dll
+C:\curso\CarShop\CarShop.Infrastructure\bin\Debug\net8.0\CarShop.Infrastructure.pdb
+C:\curso\CarShop\CarShop.Infrastructure\bin\Debug\net8.0\CarShop.Domain.dll
+C:\curso\CarShop\CarShop.Infrastructure\bin\Debug\net8.0\CarShop.Domain.pdb
+C:\curso\CarShop\CarShop.Infrastructure\obj\Debug\net8.0\CarShop.Infrastructure.csproj.AssemblyReference.cache
+C:\curso\CarShop\CarShop.Infrastructure\obj\Debug\net8.0\CarShop.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\curso\CarShop\CarShop.Infrastructure\obj\Debug\net8.0\CarShop.Infrastructure.AssemblyInfoInputs.cache
+C:\curso\CarShop\CarShop.Infrastructure\obj\Debug\net8.0\CarShop.Infrastructure.AssemblyInfo.cs
+C:\curso\CarShop\CarShop.Infrastructure\obj\Debug\net8.0\CarShop.Infrastructure.csproj.CoreCompileInputs.cache
+C:\curso\CarShop\CarShop.Infrastructure\obj\Debug\net8.0\CarShop.Infrastructure.csproj.CopyComplete
+C:\curso\CarShop\CarShop.Infrastructure\obj\Debug\net8.0\CarShop.Infrastructure.dll
+C:\curso\CarShop\CarShop.Infrastructure\obj\Debug\net8.0\refint\CarShop.Infrastructure.dll
+C:\curso\CarShop\CarShop.Infrastructure\obj\Debug\net8.0\CarShop.Infrastructure.pdb
+C:\curso\CarShop\CarShop.Infrastructure\obj\Debug\net8.0\ref\CarShop.Infrastructure.dll

@@ -1,0 +1,17 @@
+﻿@page "/cadastrar/carro"
+
+<PageTitle>Cadastrar Carro</PageTitle>
+
+<div class="row justify-content-center">
+    <div class="col-6">
+        <CarForm editMode="false" OnValidaCarSubmit="addCar" />
+    </div>
+</div>
+
+@code {
+    private async Task addCar(Car car)
+    {
+        await carRepository.save(car);
+        navigation.NavigateTo("/carros");
+    }
+}

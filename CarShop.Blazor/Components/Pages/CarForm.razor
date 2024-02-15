@@ -1,0 +1,98 @@
+﻿@if (Car is not null)
+{
+    <EditForm Enhance="true" method="post" FormName="CarForm" OnValidSubmit="submitFunction"
+              Model="Car" id="submitFunction">
+
+        <h3>@PageTitle</h3>
+
+        @if (editMode)
+        {
+            <input type="hidden" name="Car.CarId" value="@Car.CarId" />
+        }
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Imagem Link</label>
+            <InputText id="image" @bind-Value="Car.ImageLink" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome</label>
+            <InputText id="name" @bind-Value="Car.Name" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Preço</label>
+            <InputNumber id="price" @bind-Value="Car.Price" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Categoria</label>
+            <InputSelect id="category" @bind-Value="Car.Category" class="form-control">
+                <option value="0">
+                    Selecione a Categoria
+                </option>
+                @foreach (var category in Enum.GetValues(typeof(Category)))
+                {
+                    <option value="@category">
+                        @category.ToString()
+                    </option>
+                }
+            </InputSelect>
+        </div>
+        <div class="mb-3">
+            <label for="brand" class="form-label">Marca</label>
+            <InputSelect id="brand" @bind-Value="Car.Brand" class="form-control">
+                <option value="0">
+                    Selecione a Marca
+                </option>
+                @foreach (var brand in Enum.GetValues(typeof(Brand)))
+                {
+                    <option value="@brand">
+                        @brand.ToString()
+                    </option>
+                }
+            </InputSelect>
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">
+                Enviar
+            </button>
+            <a href="/carros" class="btn btn-secondary ms-3" data-enhance-nav="false">
+                Retornar para carros
+            </a>
+        </div>
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+    </EditForm>
+}
+
+@code {
+    [Parameter]
+    public bool editMode { get; set; } = false;
+
+    [Parameter]
+    public int Id { get; set; }
+
+    [Parameter]
+    //informar o componente Pai que o Form foi enviado
+    public EventCallback<Car> OnValidaCarSubmit { get; set; }
+
+    [SupplyParameterFromForm(FormName = "CarForm")]
+    public Car? Car { get; set;  }
+
+    private string PageTitle => editMode ? $"Editar Carro {Id}" : "Cadastrar Carro";
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (editMode)
+        {
+            Car ??= await carRepository.getById(Id);
+        }
+        else
+        {
+            Car ??= new Car(0, null, null, 0, Category.Sedan, Brand.Fiat);
+        }
+    }
+
+    private async Task submitFunction()
+    {
+        await OnValidaCarSubmit.InvokeAsync(Car);
+    }
+}

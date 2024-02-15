@@ -1,0 +1,27 @@
+﻿﻿.confirm-dialog-container {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2000;
+}
+
+.confirm-dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 20rem;
+    padding: 10px;
+    position: fixed;
+    font-size: 25px;
+    border: 1px solid rgba(0,0,0,.2);
+}
+
+.confirm-dialog > strong {
+    margin-top: 20px
+}
