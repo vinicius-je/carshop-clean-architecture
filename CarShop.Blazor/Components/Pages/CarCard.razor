@@ -1,14 +1,14 @@
 ﻿﻿<div class="col-md-3 mb-3">
     <div class="card custom-card">
-        <img src="@car.ImageLink" class="card-img-top custom-card-img" alt="Capa">
+        <img src="@car.ImageLink" class="card-img-top" alt="Capa">
         <div class="card-body">
-            <h5 class="card-title">Veículo: @car.Name</h5>
-            <p class="card-text">Preço: @car.Price</p>
-            <p class="cart-text">Categoria: @car.Category</p>
-            <p class="card-text">Marca: @car.Brand</p>
-            <div class="d-flex justify-content-between align-items-center mt-2">
-                <a href="/editar/carro/@car.CarId" class="btn btn-primary">Editar</a>
-                <button @onclick="ConfirmModal" class="btn btn-danger">Deletar</button>
+            <p><strong>Veículo:</strong> @car.Name</p>
+            <p><strong>Preço:</strong> R$ @decimalFormatter(@car.Price)</p>
+            <p><strong>Categoria:</strong> @car.Category</p>
+            <p><strong>Marca:</strong> @car.Brand</p>
+            <div class="d-flex flex-row align-items-center gap-1">
+                <a href="/editar/carro/@car.CarId" class="d-inline btn btn-primary">Editar</a>
+                <button @onclick="ConfirmModal" class="d-inline btn btn-danger">Deletar</button>
             </div>
         </div>
     </div>
@@ -39,6 +39,11 @@
         await carRepository.deleteById(car.CarId);
         displayModal = false;
         navigation.NavigateTo("/carros");
+    }
+
+    private string decimalFormatter(decimal value)
+    {
+        return value.ToString("0.00");
     }
 
 }
